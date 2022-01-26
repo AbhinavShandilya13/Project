@@ -58,7 +58,6 @@ int main() {
 }
 
 int entry() {
-    //int type;
     int total=10;
     printf("Select vehicle type\n");
     printf("1. Two wheeler\n");
@@ -76,7 +75,7 @@ int entry() {
         commercial();
     }
     user_counter+=1;
-    //printf("Spaces left = %d",user_counter);
+  
 }
 
 int two_wheeler() {
@@ -152,12 +151,7 @@ int user_Details() {
     scanf("%s",user.vehicle_no);
     printf("Enter model: ");
     scanf("%s",user.model);
-    /*
-    fprintf(data,"Owner name: %s\n",user.name);
-    fprintf(data,"Owner contact no: %s\n",user.contact_no);
-    fprintf(data,"Vehicle no: %s\n",user.vehicle_no);
-    fprintf(data,"Vehicle model: %s\n",user.model);
-    */
+    
     time_difference();
     user.hour=global_hour;
     user.min=global_min;
@@ -182,13 +176,7 @@ int searcher(char vehicle_details_matcher[100]) {
     backlog = fopen("D:\\Study material\\backlog.txt","a");
     time_t t;
     time(&t);
-    //time_t seconds;
-    //struct tm *timeStruct;
-    //seconds = time(NULL);
-    //timeStruct = localtime(&seconds);
-
-    //fscanf(data,"%s",&num);
-    //printf("the value is %s",num);
+    
     time_difference();
     while(fread(&user, sizeof(struct vehicle), 1, data)) {
         if (strcmp(user.vehicle_no,vehicle_details_matcher)==0) {
