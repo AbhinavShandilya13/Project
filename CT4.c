@@ -42,9 +42,9 @@ int global_cost;
 int main() {
     int start;
     printf("\t\t***WELCOME TO GRAND LEVEL PARKING***\n\n");
-    printf("What do you want to do?\n");
-    printf("1. Entry\n");
-    printf("2. Exit: ");
+    printf("\nWhat do you want to do?\n");
+    printf("\n1. Entry\n");
+    printf("\n2. Exit: ");
     scanf("%d",&start);
     printf("\n");
     if (start==1) {
@@ -94,7 +94,7 @@ int two_wheeler() {
     }
 
     user_Details();
-    printf("Here is your Entry receipt...\n\n");
+    printf("\n\t\t\t\tHere is your Entry receipt...\n");
     entry_receipt();
 }
 
@@ -117,7 +117,7 @@ int four_wheeler() {
     }
 
     user_Details();
-    printf("Here is your Entry receipt...\n\n");
+    printf("\n\t\t\t\tHere is your Entry receipt...\n");
     entry_receipt();
 }
 
@@ -137,12 +137,12 @@ int commercial() {
     }
 
     user_Details();
-    printf("Here is your Entry receipt...\n\n");
+    printf("\n\t\t\t\tHere is your Entry receipt...\n");
     entry_receipt();
 }
 
 int user_Details() {
-    data = fopen("D:\\Study material\\Entry_details2.txt","a");
+    data = fopen("D:\\Yashwanth kanetkar\\Entry_details2.txt","a");
     printf("\nEnter name: ");
     scanf("%s",user.name);
     printf("Enter contact no: ");
@@ -162,18 +162,18 @@ int user_Details() {
 int entry_receipt() {
     time_t t;
     time(&t);
-    printf("***************************************\n");
+    printf("\n\t\t\t******************************************\n");
     printf("%s\n", ctime(&t));
-    printf("Owner name: %s\n",user.name);
-    printf("Owner contact no: %s\n",user.contact_no);
-    printf("Vehicle no: %s\n",user.vehicle_no);
-    printf("Vehicle model: %s\n",user.model);
-    printf("***************************************");
+    printf("\t\tOwner name: %s\n",user.name);
+    printf("\t\tOwner contact no: %s\n",user.contact_no);
+    printf("\t\tVehicle no: %s\n",user.vehicle_no);
+    printf("\t\tVehicle model: %s\n",user.model);
+    printf("\n\t\t\t******************************************");
 }
 
 int searcher(char vehicle_details_matcher[100]) {
-    data = fopen("D:\\Study material\\Entry_details2.txt","r");
-    backlog = fopen("D:\\Study material\\backlog.txt","a");
+    data = fopen("D:\\Yashwanth kanetkar\\Entry_details2.txt","r");
+    backlog = fopen("D:\\Yashwanth kanetkar\\backlog.txt","a");
     time_t t;
     time(&t);
     
@@ -187,15 +187,15 @@ int searcher(char vehicle_details_matcher[100]) {
             else {
                 global_cost=user.cost*difference;
             }
-            printf("***************************************\n");
+            printf("\n\t\t\t******************************************\n");
             printf("%s\n", ctime(&t));
-            printf("Owner name: %s\n",user.name);
-            printf("Owner contact no: %s\n",user.contact_no);
-            printf("Vehicle no: %s\n",user.vehicle_no);
-            printf("Vehicle model: %s\n",user.model);
-            printf("You have to pay Rs.%d\n",global_cost);
-            printf("THANKYOU! PLEASE VISIT AGAIN.\n");
-            printf("***************************************");
+            printf("\t\tOwner name: %s\n",user.name);
+            printf("\t\tOwner contact no: %s\n",user.contact_no);
+            printf("\t\tVehicle no: %s\n",user.vehicle_no);
+            printf("\t\tVehicle model: %s\n",user.model);
+            printf("\t\tYou have to pay Rs.%d\n",global_cost);
+            printf("\n\t\t\t\tTHANKYOU! PLEASE VISIT AGAIN.\n");
+            printf("\n\t\t\t\t******************************************");
             fwrite(&user, sizeof(struct vehicle), 1, backlog);
             deletespecific(vehicle_details_matcher);
             break;
@@ -228,7 +228,7 @@ void readdata()
 {
     int i=0;
 
-    data=fopen("D:\\Study material\\Entry_details2.txt","r");
+    data=fopen("D:\\Yashwanth kanetkar\\Entry_details2.txt","r");
     while(fread(&user_rewrite[i],sizeof(struct vehicle),1,data)==1)
     {
         i++;
@@ -239,7 +239,7 @@ void readdata()
 void deletespecific(char vehicle_details_matcher[100])
 {
     readdata();
-    data=fopen("D:\\Study material\\Entry_details2.txt","w");
+    data=fopen("D:\\Yashwanth kanetkar\\Entry_details2.txt","w");
     for (int w=0;w<t;w++)
     {
         if(strcmp(user_rewrite[w].vehicle_no, vehicle_details_matcher)==1)
