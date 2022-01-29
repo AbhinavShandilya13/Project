@@ -55,6 +55,8 @@ int main() {
         exiter();
     }
     return 0;
+    getch(0);
+    
 }
 
 int entry() {
@@ -248,4 +250,5 @@ void deletespecific(char vehicle_details_matcher[100])
         }
     }
     fclose(data);
+    
  }
